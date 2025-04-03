@@ -5,7 +5,7 @@ namespace DESLibrary
 {
     public class DES
     {
-        // Các bảng tra cứu giữ nguyên...
+
         private static readonly int[] IP = new int[] {
             58, 50, 42, 34, 26, 18, 10, 2, 60, 52, 44, 36, 28, 20, 12, 4,
             62, 54, 46, 38, 30, 22, 14, 6, 64, 56, 48, 40, 32, 24, 16, 8,
@@ -85,12 +85,10 @@ namespace DESLibrary
         private static readonly int[] SHIFTS = new int[16] { 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1 };
 
         private readonly byte[] key;
-        private readonly byte[] iv;
 
-        public DES(string keyString, byte[] iv = null)
+        public DES(string keyString)
         {
             this.key = Encoding.UTF8.GetBytes(keyString.PadRight(8, '\0').Substring(0, 8));
-            this.iv = iv ?? new byte[8];
         }
 
         public byte[] Encrypt(byte[] data)
@@ -105,19 +103,13 @@ namespace DESLibrary
             }
 
             byte[] result = new byte[paddedData.Length];
-            byte[] previousBlock = new byte[iv.Length];
-            Array.Copy(iv, previousBlock, iv.Length);
 
             for (int i = 0; i < paddedData.Length; i += 8)
             {
                 byte[] block = new byte[8];
                 Array.Copy(paddedData, i, block, 0, 8);
-                for (int j = 0; j < 8; j++)
-                    block[j] ^= previousBlock[j];
-
                 byte[] encryptedBlock = ProcessBlock(block, true);
                 Array.Copy(encryptedBlock, 0, result, i, 8);
-                previousBlock = encryptedBlock;
             }
 
             return result;
@@ -131,19 +123,13 @@ namespace DESLibrary
             }
 
             byte[] result = new byte[data.Length];
-            byte[] previousBlock = new byte[iv.Length];
-            Array.Copy(iv, previousBlock, iv.Length);
 
             for (int i = 0; i < data.Length; i += 8)
             {
                 byte[] block = new byte[8];
                 Array.Copy(data, i, block, 0, 8);
                 byte[] decryptedBlock = ProcessBlock(block, false);
-                for (int j = 0; j < 8; j++)
-                    decryptedBlock[j] ^= previousBlock[j];
-
                 Array.Copy(decryptedBlock, 0, result, i, 8);
-                Array.Copy(block, previousBlock, 8);
             }
 
             int paddingLength = result[result.Length - 1];

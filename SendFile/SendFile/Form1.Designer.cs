@@ -30,7 +30,6 @@ namespace SendFile
         /// the contents of this method with the code editor.
         /// </summary>
 
-
         #endregion
 
         private TextBox txtFilePath;
@@ -86,7 +85,7 @@ namespace SendFile
             this.PerformLayout();
         }
 
-       
+
     }
 }
 

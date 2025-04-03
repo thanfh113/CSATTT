@@ -32,16 +32,15 @@ namespace ReceiveFile
             this.lblStatus = new System.Windows.Forms.Label();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnDownload = new System.Windows.Forms.Button();
-            this.btnUploadAndEncrypt = new System.Windows.Forms.Button();
-            //this.btnDownloadDecrypted = new System.Windows.Forms.Button(); // Thêm nút Download Encrypted
-
+            this.btnUploadAndDecrypt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStartListening
             // 
-            this.btnStartListening.Location = new System.Drawing.Point(12, 12);
+            this.btnStartListening.Location = new System.Drawing.Point(18, 18);
+            this.btnStartListening.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartListening.Name = "btnStartListening";
-            this.btnStartListening.Size = new System.Drawing.Size(120, 23);
+            this.btnStartListening.Size = new System.Drawing.Size(180, 35);
             this.btnStartListening.TabIndex = 0;
             this.btnStartListening.Text = "Start Listening";
             this.btnStartListening.UseVisualStyleBackColor = true;
@@ -50,26 +49,28 @@ namespace ReceiveFile
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(138, 17);
+            this.lblStatus.Location = new System.Drawing.Point(207, 26);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(38, 13);
+            this.lblStatus.Size = new System.Drawing.Size(55, 20);
             this.lblStatus.TabIndex = 1;
             this.lblStatus.Text = "Ready";
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(12, 41);
+            this.txtFilePath.Location = new System.Drawing.Point(18, 63);
+            this.txtFilePath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.Size = new System.Drawing.Size(250, 20);
+            this.txtFilePath.Size = new System.Drawing.Size(373, 26);
             this.txtFilePath.TabIndex = 2;
             // 
             // btnDownload
             // 
-            //this.btnDownload.Enabled = false;
-            this.btnDownload.Location = new System.Drawing.Point(268, 39);
+            this.btnDownload.Location = new System.Drawing.Point(402, 60);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(75, 23);
+            this.btnDownload.Size = new System.Drawing.Size(112, 35);
             this.btnDownload.TabIndex = 3;
             this.btnDownload.Text = "Download";
             this.btnDownload.UseVisualStyleBackColor = true;
@@ -77,37 +78,26 @@ namespace ReceiveFile
             // 
             // btnUploadAndEncrypt
             // 
-           // this.btnUploadAndEncrypt.Enabled = false;
-            this.btnUploadAndEncrypt.Location = new System.Drawing.Point(12, 67);
-            this.btnUploadAndEncrypt.Name = "btnUploadAndEncrypt";
-            this.btnUploadAndEncrypt.Size = new System.Drawing.Size(160, 23);
-            this.btnUploadAndEncrypt.TabIndex = 4;
-            this.btnUploadAndEncrypt.Text = "Upload and Encrypt";
-            this.btnUploadAndEncrypt.UseVisualStyleBackColor = true;
-            this.btnUploadAndEncrypt.Click += new System.EventHandler(this.btnUploadAndEncrypt_Click);
-            // 
-            // btnDownloadEncrypted
-            // 
-           // this.btnDownloadEncrypted.Enabled = false;
-            //this.btnDownloadDecrypted.Location = new System.Drawing.Point(188, 67);
-            //this.btnDownloadDecrypted.Name = "btnDownloadEncrypted";
-            //this.btnDownloadDecrypted.Size = new System.Drawing.Size(160, 23);
-            //this.btnDownloadDecrypted.TabIndex = 5;
-            //this.btnDownloadDecrypted.Text = "Download Encrypted"; // Đặt tên cho nút mới
-            //this.btnDownloadDecrypted.UseVisualStyleBackColor = true;
-            //this.btnDownloadDecrypted.Click += new System.EventHandler(this.btnDownloadDecrypted_Click); // Gắn sự kiện click
+            this.btnUploadAndDecrypt.Location = new System.Drawing.Point(18, 103);
+            this.btnUploadAndDecrypt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUploadAndDecrypt.Name = "btnUploadAndEncrypt";
+            this.btnUploadAndDecrypt.Size = new System.Drawing.Size(240, 35);
+            this.btnUploadAndDecrypt.TabIndex = 4;
+            this.btnUploadAndDecrypt.Text = "Upload and Decrypt";
+            this.btnUploadAndDecrypt.UseVisualStyleBackColor = true;
+            this.btnUploadAndDecrypt.Click += new System.EventHandler(this.btnUploadAndDecrypt_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 102);
-            //this.Controls.Add(this.btnDownloadDecrypted); // Thêm nút Download Encrypted vào form
-            this.Controls.Add(this.btnUploadAndEncrypt);
+            this.ClientSize = new System.Drawing.Size(532, 157);
+            this.Controls.Add(this.btnUploadAndDecrypt);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnStartListening);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Receive File";
             this.ResumeLayout(false);
@@ -121,7 +111,7 @@ namespace ReceiveFile
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.Button btnDownload;
-        private System.Windows.Forms.Button btnUploadAndEncrypt;
+        private System.Windows.Forms.Button btnUploadAndDecrypt;
         //private System.Windows.Forms.Button btnDownloadDecrypted;
 
     }

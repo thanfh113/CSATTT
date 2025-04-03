@@ -84,7 +84,7 @@ namespace ReceiveFile
             }
         }
 
-        private void btnUploadAndEncrypt_Click(object sender, EventArgs e)
+        private void btnUploadAndDecrypt_Click(object sender, EventArgs e)
         {
             try
             {
